@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'screens/home_screen.dart';
 import 'screens/footer.dart';
+import 'screens/skills.dart';
 
 class Portfolio extends StatefulWidget {
   const Portfolio({super.key});
@@ -11,6 +12,9 @@ class Portfolio extends StatefulWidget {
 }
 
 class _PortfolioState extends State<Portfolio> {
+  final skillKey = GlobalKey();
+  final homeKey = GlobalKey();
+
   bool isMobile = false;
   List<Widget> navbarItems = [];
 
@@ -20,15 +24,19 @@ class _PortfolioState extends State<Portfolio> {
       Padding(
         padding: const EdgeInsets.all(10),
         child: ElevatedButton(
-          onPressed: () {},
+          onPressed: () {
+            Scrollable.ensureVisible(homeKey.currentContext!);
+          },
           child: const Text("Home"),
         ),
       ),
       Padding(
         padding: const EdgeInsets.all(10),
         child: ElevatedButton(
-          onPressed: () {},
-          child: const Text("About"),
+          onPressed: () {
+            Scrollable.ensureVisible(skillKey.currentContext!);
+          },
+          child: const Text("Skills"),
         ),
       ),
       Padding(
@@ -44,7 +52,7 @@ class _PortfolioState extends State<Portfolio> {
             onPressed: () {
               // Scrollable.ensureVisible(skillKey.currentContext!);
             },
-            child: const Text("Skills")),
+            child: const Text("Contact")),
       ),
     ];
     super.initState();
@@ -55,7 +63,7 @@ class _PortfolioState extends State<Portfolio> {
     isMobile = MediaQuery.of(context).size.width > 700 ? false : true;
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.black87,
+        backgroundColor: Colors.cyan,
         foregroundColor: Colors.white,
         title: const Text('Flutter Developer'),
         actions: isMobile ? null : navbarItems,
@@ -73,14 +81,15 @@ class _PortfolioState extends State<Portfolio> {
             image: AssetImage('./assets/home_screen.jpg'),
           ),
         ),
-        child: const SingleChildScrollView(
-          child: Center(
-            child: Column(
-              children: [
-                HomeScreen(),
-                Footer(),
-              ],
-            ),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Center(
+                child: HomeScreen(key: homeKey),
+              ),
+              Skills(key: skillKey),
+              const Footer(),
+            ],
           ),
         ),
       ),

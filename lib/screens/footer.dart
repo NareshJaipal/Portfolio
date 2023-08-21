@@ -18,9 +18,9 @@ class Footer extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SocialMediaIcons(iconName: FontAwesomeIcons.facebook),
-              SizedBox(width: 10),
+              SizedBox(width: 20),
               SocialMediaIcons(iconName: FontAwesomeIcons.github),
-              SizedBox(width: 10),
+              SizedBox(width: 20),
               SocialMediaIcons(iconName: FontAwesomeIcons.twitter),
             ],
           ),

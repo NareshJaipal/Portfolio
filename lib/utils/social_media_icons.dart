@@ -15,22 +15,21 @@ class _SocialMediaIconsState extends State<SocialMediaIcons> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onHover: (val) {
+      onTap: () {},
+      onHover: (value) {
         setState(() {
-          isHovering = !isHovering;
+          isHovering = value;
         });
       },
       child: AnimatedContainer(
-        duration: const Duration(microseconds: 300),
+        duration: const Duration(milliseconds: 300),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: isHovering ? Colors.grey : Colors.white,
           borderRadius: BorderRadius.circular(12),
-          border: Border.all(color: Colors.white),
+          border: Border.all(color: isHovering ? Colors.grey : Colors.white),
         ),
-        child: Padding(
-          padding: const EdgeInsets.all(4),
-          child: FaIcon(widget.iconName),
-        ),
+        padding: const EdgeInsets.all(4),
+        child: FaIcon(widget.iconName),
       ),
     );
   }
