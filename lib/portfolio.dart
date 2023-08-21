@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/screens/home_screen.dart';
+
+import 'screens/home_screen.dart';
+import 'screens/footer.dart';
 
 class Portfolio extends StatefulWidget {
   const Portfolio({super.key});
@@ -63,19 +65,20 @@ class _PortfolioState extends State<Portfolio> {
               child: ListView(children: navbarItems),
             )
           : null,
-      body: SingleChildScrollView(
-        child: Container(
-          height: MediaQuery.of(context).size.height,
-          decoration: const BoxDecoration(
-            image: DecorationImage(
-              fit: BoxFit.fill,
-              image: AssetImage('./assets/home_screen.jpg'),
-            ),
+      body: Container(
+        height: MediaQuery.of(context).size.height,
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            fit: BoxFit.fill,
+            image: AssetImage('./assets/home_screen.jpg'),
           ),
-          child: const Center(
+        ),
+        child: const SingleChildScrollView(
+          child: Center(
             child: Column(
               children: [
                 HomeScreen(),
+                Footer(),
               ],
             ),
           ),
