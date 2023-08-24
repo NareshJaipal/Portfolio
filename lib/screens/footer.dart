@@ -17,11 +17,22 @@ class Footer extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SocialMediaIcons(iconName: FontAwesomeIcons.facebook),
+              SocialMediaIcons(
+                iconName: FontAwesomeIcons.facebook,
+                socialUrl:
+                    'https://www.facebook.com/profile.php?id=100010172746886&mibextid=ZbWKwL',
+              ),
               SizedBox(width: 20),
-              SocialMediaIcons(iconName: FontAwesomeIcons.github),
+              SocialMediaIcons(
+                iconName: FontAwesomeIcons.github,
+                socialUrl: 'https://github.com/NareshJaipal',
+              ),
               SizedBox(width: 20),
-              SocialMediaIcons(iconName: FontAwesomeIcons.twitter),
+              SocialMediaIcons(
+                iconName: FontAwesomeIcons.twitter,
+                socialUrl:
+                    'https://twitter.com/Nareshk0270?t=vLMVG44KAbeJcUmeEC04ew&s=09',
+              ),
             ],
           ),
           SizedBox(height: 10),

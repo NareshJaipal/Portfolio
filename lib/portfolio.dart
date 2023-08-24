@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/screens/projects.dart';
 
 import 'screens/home_screen.dart';
 import 'screens/footer.dart';
@@ -14,6 +15,7 @@ class Portfolio extends StatefulWidget {
 class _PortfolioState extends State<Portfolio> {
   final skillKey = GlobalKey();
   final homeKey = GlobalKey();
+  final projectsKey = GlobalKey();
 
   bool isMobile = false;
   List<Widget> navbarItems = [];
@@ -42,7 +44,9 @@ class _PortfolioState extends State<Portfolio> {
       Padding(
         padding: const EdgeInsets.all(10),
         child: ElevatedButton(
-          onPressed: () {},
+          onPressed: () {
+            Scrollable.ensureVisible(projectsKey.currentContext!);
+          },
           child: const Text("Projects"),
         ),
       ),
@@ -88,6 +92,7 @@ class _PortfolioState extends State<Portfolio> {
                 child: HomeScreen(key: homeKey),
               ),
               Skills(key: skillKey),
+              Projects(key: projectsKey),
               const Footer(),
             ],
           ),

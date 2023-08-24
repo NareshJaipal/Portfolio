@@ -42,7 +42,7 @@ class _SkillsIconsState extends State<SkillsIcons> {
                     : const EdgeInsets.all(40),
         child: Icon(
           widget.skillIconName,
-          size: isHovering ? 110 : 100,
+          size: isHovering ? 110 : 90,
           color: widget.skillIconColor,
         ),
       ),
