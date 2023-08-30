@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:carousel_slider/carousel_slider.dart';
-import 'package:url_launcher/url_launcher.dart';
 
-import '../database/database.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Projects extends StatefulWidget {
   const Projects({Key? key}) : super(key: key);
@@ -17,10 +15,10 @@ class _ProjectsState extends State<Projects> {
     return Container(
       width: MediaQuery.of(context).size.width,
       padding: const EdgeInsets.all(10),
-      child: Column(
+      child: const Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
+          Text(
             '   Projects',
             style: TextStyle(
               color: Colors.purple,
@@ -35,28 +33,28 @@ class _ProjectsState extends State<Projects> {
                 MyProject(
                   title: 'Chat App',
                   disc:
-                      'A realtime public chat room application that can update in realtime and allow for communication for user',
+                      'A realtime public chat room application that can update in realtime.',
                   appUrl: 'https://nareshjaipal.github.io/Chat-App/#/',
-                  pics: chatAppImgList,
+                  pics: './assets/chat_app.jpeg',
                 ),
 
                 // Contact App
                 MyProject(
                   title: 'Contact App',
                   disc:
-                      'A contact management app that can store user contacts and edit the user contacts',
+                      'A contact management app that can store and edit user contacts.',
                   appUrl:
                       'https://nareshjaipal.github.io/Flutter_Projects/contacts/build/#/',
-                  pics: contactAppImgList,
+                  pics: './assets/contact_app.jpeg',
                 ),
 
                 // Calculator
                 MyProject(
                   title: 'Calculator',
-                  disc: 'A simple yet beautiful calculator app',
+                  disc: 'A simple yet beautiful calculator app.',
                   appUrl:
                       'https://nareshjaipal.github.io/Flutter_Projects/calculator/docs/',
-                  pics: calculatorAppImgList,
+                  pics: './assets/calculator.jpeg',
                 ),
               ],
             ),
@@ -71,7 +69,7 @@ class MyProject extends StatelessWidget {
   final String title;
   final String disc;
   final String appUrl;
-  final List<String> pics;
+  final String pics;
 
   const MyProject({
     super.key,
@@ -92,31 +90,30 @@ class MyProject extends StatelessWidget {
               : MediaQuery.of(context).size.width < 950
                   ? const EdgeInsets.all(30)
                   : const EdgeInsets.all(40),
-      width: 230,
+      width: 220,
       height: 450,
       decoration: BoxDecoration(
+        // image: DecorationImage(
+        //   fit: BoxFit.fill,
+        //   image: AssetImage(pics),
+        // ),
         border: Border.all(color: Colors.grey),
         borderRadius: BorderRadius.circular(20),
       ),
       child: Column(
         children: [
           Expanded(
-            child: CarouselSlider.builder(
-              itemCount: pics.length,
-              options: CarouselOptions(
-                autoPlay: true,
-                aspectRatio: 2.0,
-                enlargeCenterPage: true,
+            child: Container(
+              width: 160,
+              height: 350,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  fit: BoxFit.fill,
+                  image: AssetImage(pics),
+                ),
+                border: Border.all(color: Colors.grey),
+                borderRadius: BorderRadius.circular(20),
               ),
-              itemBuilder: (context, index, realIdx) {
-                return Center(
-                  child: Image.network(
-                    pics[index],
-                    fit: BoxFit.cover,
-                    width: 1000,
-                  ),
-                );
-              },
             ),
           ),
           const SizedBox(height: 5),
@@ -127,17 +124,20 @@ class MyProject extends StatelessWidget {
           ),
           Text(
             disc,
-            style: const TextStyle(color: Colors.white60),
+            style: const TextStyle(color: Colors.white70),
           ),
-          TextButton(
+          ElevatedButton(
             onPressed: () async {
               final Uri url = Uri.parse(appUrl);
               launchUrl(url);
             },
+            style: const ButtonStyle(
+              backgroundColor: MaterialStatePropertyAll(Colors.cyan),
+            ),
             child: const Text(
               'Open Project',
               style: TextStyle(
-                color: Colors.cyan,
+                color: Colors.white,
                 fontWeight: FontWeight.bold,
               ),
             ),

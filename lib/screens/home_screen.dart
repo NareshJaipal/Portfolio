@@ -113,7 +113,6 @@ class BIO extends StatelessWidget {
           const Text(
             'Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.',
             style: TextStyle(
-              // fontSize: MediaQuery.of(context).size.width * 0.01,
               color: Colors.white,
             ),
             textAlign: TextAlign.start,
@@ -150,9 +149,9 @@ class ProfilePicture extends StatelessWidget {
                   : MediaQuery.of(context).size.width < 1600
                       ? 110
                       : 130,
-          // backgroundImage: AssetImage('./assets/profile_pic.jpg'),
-          backgroundImage: const NetworkImage(
-              'https://avatars.githubusercontent.com/u/132568227?v=4'),
+          backgroundImage: const AssetImage('./assets/profile_pic.jpg'),
+          // backgroundImage: const NetworkImage(
+          //     'https://avatars.githubusercontent.com/u/132568227?v=4'),
         ),
       ),
     );

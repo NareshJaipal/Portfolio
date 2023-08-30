@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/screens/contact_me.dart';
 import 'package:portfolio/screens/projects.dart';
 
 import 'screens/home_screen.dart';
@@ -16,6 +17,7 @@ class _PortfolioState extends State<Portfolio> {
   final skillKey = GlobalKey();
   final homeKey = GlobalKey();
   final projectsKey = GlobalKey();
+  final contactMeKey = GlobalKey();
 
   bool isMobile = false;
   List<Widget> navbarItems = [];
@@ -54,9 +56,9 @@ class _PortfolioState extends State<Portfolio> {
         padding: const EdgeInsets.all(10),
         child: ElevatedButton(
             onPressed: () {
-              // Scrollable.ensureVisible(skillKey.currentContext!);
+              Scrollable.ensureVisible(contactMeKey.currentContext!);
             },
-            child: const Text("Contact")),
+            child: const Text("Contact Me")),
       ),
     ];
     super.initState();
@@ -93,6 +95,7 @@ class _PortfolioState extends State<Portfolio> {
               ),
               Skills(key: skillKey),
               Projects(key: projectsKey),
+              ContactMe(key: contactMeKey),
               const Footer(),
             ],
           ),

@@ -36,9 +36,18 @@ class Footer extends StatelessWidget {
             ],
           ),
           SizedBox(height: 10),
-          Text(
-            "Naresh Jaipal",
-            style: TextStyle(fontSize: 20, color: Colors.white),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(
+                Icons.copyright_rounded,
+                color: Colors.white,
+              ),
+              Text(
+                " Naresh Jaipal",
+                style: TextStyle(fontSize: 20, color: Colors.white),
+              ),
+            ],
           ),
         ],
       ),
