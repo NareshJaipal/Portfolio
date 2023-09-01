@@ -23,16 +23,17 @@ class _SkillsIconsState extends State<SkillsIcons> {
         });
       },
       child: AnimatedContainer(
-        duration: const Duration(microseconds: 300),
+        duration: const Duration(milliseconds: 300),
         decoration: BoxDecoration(
           color: isHovering ? Colors.cyan.shade400 : Colors.white,
           border: Border.all(
               color: isHovering ? Colors.cyan.shade400 : Colors.grey),
           borderRadius: isHovering
-              ? BorderRadius.circular(20)
+              ? BorderRadius.circular(25)
               : BorderRadius.circular(15),
         ),
-        padding: const EdgeInsets.all(20),
+        padding:
+            isHovering ? const EdgeInsets.all(15) : const EdgeInsets.all(20),
         margin: MediaQuery.of(context).size.width < 400
             ? const EdgeInsets.all(10)
             : MediaQuery.of(context).size.width < 650
@@ -42,7 +43,7 @@ class _SkillsIconsState extends State<SkillsIcons> {
                     : const EdgeInsets.all(40),
         child: Icon(
           widget.skillIconName,
-          size: isHovering ? 110 : 90,
+          size: isHovering ? 100 : 90,
           color: widget.skillIconColor,
         ),
       ),

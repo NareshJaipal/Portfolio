@@ -81,6 +81,8 @@ class _ContactMeState extends State<ContactMe> {
     }
   }
 
+  bool isHovering = false;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -194,9 +196,6 @@ class _ContactMeState extends State<ContactMe> {
                       TextField(
                         controller: messageController,
                         decoration: InputDecoration(
-                          // isDense: true,
-                          // contentPadding:
-                          //     const EdgeInsets.symmetric(vertical: 40.0),
                           hintText: 'Enter your message',
                           fillColor: Colors.white,
                           filled: true,
@@ -212,6 +211,28 @@ class _ContactMeState extends State<ContactMe> {
                         onPressed: () {
                           sendEmail();
                         },
+                        onHover: (value) {
+                          if (value) {
+                            Future.delayed(const Duration(milliseconds: 200),
+                                () {
+                              setState(() {
+                                isHovering = value;
+                              });
+                            });
+                          } else {
+                            setState(() {
+                              isHovering = value;
+                            });
+                          }
+                        },
+                        style: ButtonStyle(
+                          foregroundColor: isHovering
+                              ? MaterialStateProperty.all(Colors.white)
+                              : MaterialStateProperty.all(Colors.deepPurple),
+                          backgroundColor: isHovering
+                              ? MaterialStateProperty.all(Colors.deepPurple)
+                              : MaterialStateProperty.all(Colors.white),
+                        ),
                         child: const Padding(
                           padding: EdgeInsets.all(8.0),
                           child: Text(

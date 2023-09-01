@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_devicon/flutter_devicon.dart';
-
 import 'package:portfolio/utils/skills_icons.dart';
 
 class Skills extends StatefulWidget {

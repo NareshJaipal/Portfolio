@@ -6,6 +6,7 @@ import 'screens/home_screen.dart';
 import 'screens/footer.dart';
 import 'screens/skills.dart';
 
+
 class Portfolio extends StatefulWidget {
   const Portfolio({super.key});
 
@@ -71,7 +72,7 @@ class _PortfolioState extends State<Portfolio> {
       appBar: AppBar(
         backgroundColor: Colors.cyan,
         foregroundColor: Colors.white,
-        title: const Text('Flutter Developer'),
+        title: const Text('Web Developer'),
         actions: isMobile ? null : navbarItems,
       ),
       drawer: isMobile
